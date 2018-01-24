@@ -1,4 +1,4 @@
-import config.App;
+import config.AppConfig;
 import dom.DataBaseSource;
 import dom.User;
 import org.apache.logging.log4j.LogManager;
@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import serv.EmailMsgService;
 import serv.UserService;
 
 import java.util.ArrayList;
@@ -18,13 +19,15 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(App.class);
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
 
 //        UserService userService = applicationContext.getBean(UserService.class);
 
 //        UserService userService = (UserService) applicationContext.getBean("userService");
 
         UserService userService = (UserService) applicationContext.getBean("userService1");
+
+        EmailMsgService emailMsgService = applicationContext.getBean(EmailMsgService.class);
 
         DataBaseSource dataBaseSource = applicationContext.getBean(DataBaseSource.class);
 
@@ -45,6 +48,8 @@ public class Main {
         );
 
         userService.saveUser(user);
+
+        emailMsgService.sendMsgWithEmail();
 
         log.info(dataBaseSource.getDriverName() + ", " +
                 dataBaseSource.getName() + ", " +
