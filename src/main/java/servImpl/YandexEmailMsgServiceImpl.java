@@ -12,7 +12,7 @@ public class YandexEmailMsgServiceImpl implements EmailMsgService {
     private static Logger log = LogManager.getLogger(YandexEmailMsgServiceImpl.class.getName());
 
     @Override
-    public void sendMsgWithEmail() {
+    public void sendMessageOnEmail() {
         log.info("It's yandex!");
     }
 }

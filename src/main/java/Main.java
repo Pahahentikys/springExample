@@ -7,6 +7,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import serv.EmailMsgService;
+import serv.ServiceManager;
 import serv.UserService;
 
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class Main {
 
         UserService userService = (UserService) applicationContext.getBean("userService1");
 
-        EmailMsgService emailMsgService = applicationContext.getBean(EmailMsgService.class);
+//        EmailMsgService emailMsgService = applicationContext.getBean(EmailMsgService.class);
 
         DataBaseSource dataBaseSource = applicationContext.getBean(DataBaseSource.class);
 
@@ -49,13 +50,16 @@ public class Main {
 
         userService.saveUser(user);
 
-        emailMsgService.sendMsgWithEmail();
+//        emailMsgService.sendMessageOnEmail();
 
         log.info(dataBaseSource.getDriverName() + ", " +
                 dataBaseSource.getName() + ", " +
                 dataBaseSource.getPass() + ", " +
                 dataBaseSource.getUrl()
         );
+
+        ServiceManager serviceManager = applicationContext.getBean(ServiceManager.class);
+        serviceManager.sendMessage(user);
 
         ((ConfigurableApplicationContext) applicationContext).close();
 

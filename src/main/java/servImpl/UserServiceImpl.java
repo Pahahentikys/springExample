@@ -15,8 +15,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private DataBaseSource dataBaseSource;
 
-    @Autowired
-    private EmailMsgService emailMsgService;
+//    @Autowired
+//    private EmailMsgService emailMsgService;
 
     @Override
     public void saveUser(User user) {

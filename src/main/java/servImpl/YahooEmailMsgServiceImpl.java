@@ -13,7 +13,7 @@ public class YahooEmailMsgServiceImpl implements EmailMsgService {
     private static Logger log = LogManager.getLogger(YahooEmailMsgServiceImpl.class.getName());
 
     @Override
-    public void sendMsgWithEmail() {
+    public void sendMessageOnEmail() {
         log.info("It's yahoo!");
     }
 }

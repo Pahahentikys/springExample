@@ -10,7 +10,7 @@ public class EmailMsgServiceImpl implements EmailMsgService {
      private static Logger log = LogManager.getLogger(EmailMsgServiceImpl.class.getName());
 
     @Override
-    public void sendMsgWithEmail() {
+    public void sendMessageOnEmail() {
       log.info("Message on email will sended!");
     }
 }

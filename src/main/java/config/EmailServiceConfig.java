@@ -8,26 +8,29 @@ import servImpl.GmailEmailMsgServiceImpl;
 import servImpl.YahooEmailMsgServiceImpl;
 import servImpl.YandexEmailMsgServiceImpl;
 
+/**
+ * @author Pahahentikys on 07.02.2018
+ */
 @Configuration
-public class ServiceConfig {
+public class EmailServiceConfig {
 
     @Bean
-    EmailMsgService emailMsgService(){
+    EmailMsgService emailMsgService() {
         return new EmailMsgServiceImpl();
     }
 
     @Bean(name = "YahooEmailMsgService")
-    EmailMsgService yahooEmailService(){
+    EmailMsgService yahooEmailService() {
         return new YahooEmailMsgServiceImpl();
     }
 
     @Bean(name = "YandexEmailMsgService")
-    EmailMsgService yandexEmailService(){
+    EmailMsgService yandexEmailService() {
         return new YandexEmailMsgServiceImpl();
     }
 
     @Bean(name = "GmailEmailMsgService")
-    EmailMsgService gmailEmailService(){
+    EmailMsgService gmailEmailService() {
         return new GmailEmailMsgServiceImpl();
     }
 }

@@ -12,7 +12,7 @@ public class GmailEmailMsgServiceImpl implements EmailMsgService {
     private static Logger log = LogManager.getLogger(GmailEmailMsgServiceImpl.class.getName());
 
     @Override
-    public void sendMsgWithEmail() {
+    public void sendMessageOnEmail() {
         log.info("It's gmail!");
     }
 }
